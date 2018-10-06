@@ -13,6 +13,11 @@ namespace Movies_portal_MVC5.Controllers
         public ActionResult Random()
         {
             var movie = new Models.Movies() {Name="How To Train Your Dragon" };
+
+            // return Content("hello world");
+            // return HttpNotFound();
+            //return new EmptyResult();
+            //return RedirectToAction("index", "Home",new {pages=1,sortBy="Name" }); 
             return View(movie);
         }
     }
