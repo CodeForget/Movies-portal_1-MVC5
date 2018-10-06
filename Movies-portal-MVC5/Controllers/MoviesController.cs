@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Movies_portal_MVC5.Models;
+using Movies_portal_MVC5.ViewModels;
 
 namespace Movies_portal_MVC5.Controllers
 {
@@ -12,13 +13,21 @@ namespace Movies_portal_MVC5.Controllers
         // GET: Movies/Random
         public ActionResult Random()
         {
-            var movie = new Models.Movies() {Name="How To Train Your Dragon" };
+            var movie = new Movies() { Name = "How To Train Your Dragon" };
+            var customers = new List<Customer>
+            {
+                new Customer {Name="Customer 1" },
+                 new Customer {Name="Customer 2" },
+                  new Customer {Name="Customer 3" }
+            };
 
-            // return Content("hello world");
-            // return HttpNotFound();
-            //return new EmptyResult();
-            //return RedirectToAction("index", "Home",new {pages=1,sortBy="Name" }); 
-            return View(movie);
+            var ViewModel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customers = customers
+            };
+           
+            return View(ViewModel);
         }
         public ActionResult Edit(int Id)
         {
