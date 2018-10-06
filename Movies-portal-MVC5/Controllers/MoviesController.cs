@@ -20,5 +20,18 @@ namespace Movies_portal_MVC5.Controllers
             //return RedirectToAction("index", "Home",new {pages=1,sortBy="Name" }); 
             return View(movie);
         }
+        public ActionResult Edit(int Id)
+        {
+            return Content("id="+Id);
+        }
+        //Movies
+        public ActionResult Index(int? pageIndex,string sortBy)
+        {
+            if (!pageIndex.HasValue)
+                pageIndex = 1;
+            if (string.IsNullOrWhiteSpace(sortBy))
+                sortBy = "Name";
+            return Content(string.Format("PageIndex={0} & SortBy={1}", pageIndex, sortBy));
+        }
     }
 }
