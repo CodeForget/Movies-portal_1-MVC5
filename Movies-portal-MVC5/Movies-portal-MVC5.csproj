@@ -224,6 +224,10 @@
     <Compile Include="Migrations\201810071320064_ApplyAnnotationToCustomerName.Designer.cs">
       <DependentUpon>201810071320064_ApplyAnnotationToCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810071410596_AddNameToMemershipType.cs" />
+    <Compile Include="Migrations\201810071410596_AddNameToMemershipType.Designer.cs">
+      <DependentUpon>201810071410596_AddNameToMemershipType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -328,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810071320064_ApplyAnnotationToCustomerName.resx">
       <DependentUpon>201810071320064_ApplyAnnotationToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810071410596_AddNameToMemershipType.resx">
+      <DependentUpon>201810071410596_AddNameToMemershipType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
