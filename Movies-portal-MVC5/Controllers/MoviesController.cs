@@ -10,6 +10,13 @@ namespace Movies_portal_MVC5.Controllers
 {
     public class MoviesController : Controller
     {
+        
+        public ViewResult Index()
+        {
+            var movies = GetMovies();
+
+            return View(movies);
+        }
         // GET: Movies/Random
         public ActionResult Random()
         {
@@ -26,28 +33,29 @@ namespace Movies_portal_MVC5.Controllers
                 Movie = movie,
                 Customers = customers
             };
-           
+
             return View(ViewModel);
         }
-        public ActionResult Edit(int Id)
-        {
-            return Content("id="+Id);
-        }
-        //Movies
-        public ActionResult Index(int? pageIndex,string sortBy)
-        {
-            if (!pageIndex.HasValue)
-                pageIndex = 1;
-            if (string.IsNullOrWhiteSpace(sortBy))
-                sortBy = "Name";
-            return Content(string.Format("PageIndex={0} & SortBy={1}", pageIndex, sortBy));
-        }
-
+        // GET: Movies/filter by released date
         [Route("movies/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
         public ActionResult ByReleaseDate(int year, int month)
         {
 
-            return Content(year+"/"+month);
+            return Content(year + "/" + month);
         }
+        //Get: Movies List
+        private IEnumerable<Movies> GetMovies()
+        {
+            return new List<Movies>
+            {
+                new Movies { Id = 1, Name = "Shrek" },
+                new Movies { Id = 2, Name = "Wall-e" },
+                new Movies { Id = 2, Name = "How To Train Your Dragon" }
+            };
+        }
+
+       
+
+       
     }
 }
