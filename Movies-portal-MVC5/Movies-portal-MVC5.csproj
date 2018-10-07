@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -207,6 +208,10 @@
     <Compile Include="Migrations\201810070629528_InitialModel.Designer.cs">
       <DependentUpon>201810070629528_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810070919491_AddIsSubscribedToNewsletter.cs" />
+    <Compile Include="Migrations\201810070919491_AddIsSubscribedToNewsletter.Designer.cs">
+      <DependentUpon>201810070919491_AddIsSubscribedToNewsletter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -298,6 +303,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201810070629528_InitialModel.resx">
       <DependentUpon>201810070629528_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810070919491_AddIsSubscribedToNewsletter.resx">
+      <DependentUpon>201810070919491_AddIsSubscribedToNewsletter.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
