@@ -1,0 +1,15 @@
+﻿@model Movies_portal_MVC5.Models.Movies
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+<ul>
+    <li><span class="font-weight-bold">Movie Genre : </span> @Model.MovieGenre.Name</li>
+    <li><span class="font-weight-bold">Release Date : </span>@Model.ReleaseDate.ToShortDateString()</li>
+    <li><span class="font-weight-bold">Date Added : </span>@Model.DateAdded</li>
+    <li><span class="font-weight-bold">InStock : </span>@Model.NumberInStock</li>
+
+</ul>
+

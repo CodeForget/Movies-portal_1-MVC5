@@ -7,13 +7,19 @@
 <h2>Movies</h2>
 
 <table class="table table-bordered table-hover">
-    <thead>Movies Name</thead>
+    <thead>
+    <tr><td class="font-weight-bold">Movies Name</td>
+        <td class="font-weight-bold">Genre</td>
+        
+    </tr>
+    </thead>
     <tbody>
         @foreach (var movie in Model)
         {
-           
+
             <tr>
-                <td>@movie.Name</td>
+                <td>@Html.ActionLink(movie.Name, "Details",new {@Id=movie.Id },new {area="" })</td>
+                <td>@movie.MovieGenre.Name</td>
             </tr>
         }
     </tbody>

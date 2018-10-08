@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 using Movies_portal_MVC5.Models;
 using Movies_portal_MVC5.ViewModels;
 
@@ -10,10 +11,27 @@ namespace Movies_portal_MVC5.Controllers
 {
     public class MoviesController : Controller
     {
-        
+        private ApplicationDbContext _context;
+        public MoviesController()
+        {
+            _context = new ApplicationDbContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();    
+        }
         public ViewResult Index()
         {
-            var movies = GetMovies();
+            var movies =_context.Movies.Include(m=>m.MovieGenre).ToList();
+            return View(movies);
+        }
+
+        public ActionResult Details(int Id)
+        {
+            var movies = _context.Movies.Include(m => m.MovieGenre).SingleOrDefault(m=>m.Id==Id);
+
+            if (movies == null)
+                return HttpNotFound();
 
             return View(movies);
         }
@@ -43,19 +61,6 @@ namespace Movies_portal_MVC5.Controllers
 
             return Content(year + "/" + month);
         }
-        //Get: Movies List
-        private IEnumerable<Movies> GetMovies()
-        {
-            return new List<Movies>
-            {
-                new Movies { Id = 1, Name = "Shrek" },
-                new Movies { Id = 2, Name = "Wall-e" },
-                new Movies { Id = 2, Name = "How To Train Your Dragon" }
-            };
-        }
-
-       
-
        
     }
 }
