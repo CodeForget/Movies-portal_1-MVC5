@@ -236,6 +236,10 @@
     <Compile Include="Migrations\201810071453038_updateMembershipType1.Designer.cs">
       <DependentUpon>201810071453038_updateMembershipType1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810071743284_AddBithdayToCustomer.cs" />
+    <Compile Include="Migrations\201810071743284_AddBithdayToCustomer.Designer.cs">
+      <DependentUpon>201810071743284_AddBithdayToCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -349,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810071453038_updateMembershipType1.resx">
       <DependentUpon>201810071453038_updateMembershipType1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810071743284_AddBithdayToCustomer.resx">
+      <DependentUpon>201810071743284_AddBithdayToCustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
