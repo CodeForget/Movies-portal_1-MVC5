@@ -27,6 +27,22 @@ namespace Movies_portal_MVC5.Controllers
             return View(customers);
         }
 
+        public ActionResult New()
+        {
+            var membershipType = _context.MembershipTypes.ToList();
+            var ViewModel = new NewCustomerViewModel()
+            {
+                MembershipType = membershipType
+            };
+            return View(ViewModel);
+        }
+        [HttpPost]
+        public ActionResult Create(Customer Customer)
+        {
+            _context.Customers.Add(Customer);
+            _context.SaveChanges();
+            return RedirectToAction("Index","Customers");
+        }
         public ActionResult Details(int id)
         {
             var customer = _context.Customers.Include(c=>c.MembershipType).SingleOrDefault(c => c.Id == id);
