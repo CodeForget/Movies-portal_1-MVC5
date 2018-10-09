@@ -37,9 +37,20 @@ namespace Movies_portal_MVC5.Controllers
             return View(ViewModel);
         }
         [HttpPost]
-        public ActionResult Create(Customer Customer)
+        public ActionResult Save(Customer Customer)
         {
-            _context.Customers.Add(Customer);
+            if (Customer.Id == 0)
+            {
+                _context.Customers.Add(Customer);
+            }
+            else
+            {
+                var customerInDb = _context.Customers.Single(c => c.Id == Customer.Id);
+                customerInDb.Name = Customer.Name;
+                customerInDb.Bithday = Customer.Bithday;
+                customerInDb.MembershipTypeId = Customer.MembershipTypeId;
+                customerInDb.IsSubscribedToNewsletter = Customer.IsSubscribedToNewsletter;
+            }
             _context.SaveChanges();
             return RedirectToAction("Index","Customers");
         }
@@ -52,7 +63,20 @@ namespace Movies_portal_MVC5.Controllers
 
             return View(customer);
         }
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            if (customer == null)
+                return HttpNotFound();
 
+            var ViewModel = new NewCustomerViewModel()
+            {
+                Customer = customer,
+                MembershipType=_context.MembershipTypes.ToList()
+            };
+
+            return View("New",ViewModel);
+        }
        
     }
 
