@@ -31,7 +31,7 @@ namespace Movies_portal_MVC5.Controllers
         {
             var membershipType = _context.MembershipTypes.ToList();
             var ViewModel = new NewCustomerViewModel()
-            {
+            {   Customer= new Customer(),
                 MembershipType = membershipType
             };
             return View(ViewModel);
