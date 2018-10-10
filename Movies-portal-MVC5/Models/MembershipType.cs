@@ -14,5 +14,9 @@ namespace Movies_portal_MVC5.Models
         public short signUpFee { get; set; }
         public byte DurationInMonths { get; set; }
         public byte DiscountRate { get; set; }
+
+        //base on Refrence Data Membership Dropdown
+        public static readonly byte Unknown=0;
+        public static readonly byte PayAsYouGo=1;
     }
 }
