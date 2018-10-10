@@ -23,7 +23,8 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.Bithday)
-        @Html.TextBoxFor(m => m.Customer.Bithday,"{0:d mmm yyyy}", new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Customer.Bithday, "{0:d mmm yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Customer.Bithday)
     </div>
     <div class="checkbox">
         <label>
