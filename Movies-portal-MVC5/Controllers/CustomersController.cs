@@ -39,6 +39,16 @@ namespace Movies_portal_MVC5.Controllers
         [HttpPost]
         public ActionResult Save(Customer Customer)
         {
+            if(!ModelState.IsValid)
+            {
+
+                var ViewModel = new NewCustomerViewModel()
+                {
+                    Customer = Customer,
+                    MembershipType = _context.MembershipTypes.ToList()
+                };
+                return View("New", ViewModel);
+            }
             if (Customer.Id == 0)
             {
                 _context.Customers.Add(Customer);

@@ -24,7 +24,8 @@ namespace Movies_portal_MVC5
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap-lumen.css"
+                      "~/Content/bootstrap-lumen.css",
+                      "~/Content/Site.css"
                       ));
         }
     }
