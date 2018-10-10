@@ -37,6 +37,7 @@ namespace Movies_portal_MVC5.Controllers
             return View(ViewModel);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer Customer)
         {
             if(!ModelState.IsValid)
